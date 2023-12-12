@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+h2 {
+    border-bottom: 1px solid #4CAF50;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.skills ul,
+.projects ul,
+.experience ul,
+.education ul,
+.language ul,
+.personal ul {
+    padding-left: 20px;
+}
+
+.personal-info {
+    float: right;
+}
+
+@media print {
+    body {
+        background-color: #fff;
+    }
+
+    header, section {
+        page-break-inside: avoid;
+    }
+}

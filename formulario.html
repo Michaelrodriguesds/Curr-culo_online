@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Formulário de Feedback</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Formulário de Feedback</h1>
+
+
+
+    <form id="feedbackForm" action="https://api.staticforms.xyz/submit" method="post">
+    
+        <div class="form-group">
+            <label for="avaliacao">Avaliação:</label>
+            <select class="form-control" name="avaliacao" id="avaliacao" required>
+                <option value="excelente">Excelente</option>
+                <option value="bom">Bom</option>
+                <option value="regular">Regular</option>
+                <option value="precisa-melhorar">Precisa Melhorar</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dicas">Dicas e Críticas:</label>
+            <textarea class="form-control" name="dicas" id="dicas" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="empresa">Nome da Empresa (opcional):</label>
+            <input type="text" class="form-control" name="empresa" id="empresa">
+        </div>
+
+        <div class="form-group">
+            <label for="contato">Informações de Contato (opcional):</label>
+            <input type="text" class="form-control" name="contato" id="contato">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Feedback</button>
+
+        <input type="hidden" name="accessKey" value="1e60151f-d9a5-4334-b831-a71d54a7c2f4">
+        <input type="hidden" name="redirectTo"value="http://127.0.0.1:5500/home.index.html">
+    </form>
+    
+</div>
+
+<!-- Scripts do Bootstrap (jQuery e Popper.js são necessários para alguns recursos do Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Obter o valor da avaliação
+    var avaliacao = document.getElementById('avaliacao').value;
+
+    // Mensagem padrão
+    var mensagem = 'Obrigado pelo feedback!';
+
+    // Personalizar a mensagem com base na avaliação
+    if (avaliacao === 'precisa-melhorar') {
+        mensagem = 'Obrigado pelo feedback! Vou continuar minha jornada para um melhorar feedback.';
+    }
+
+    // Mensagem com base no horário
+    var agora = new Date();
+    var hora = agora.getHours();
+    var mensagemHorario;
+
+    if (hora >= 18 && hora <= 23) {
+        mensagemHorario = 'Tenha uma boa noite!';
+    } else if (hora >= 1 && hora <= 11) {
+        mensagemHorario = 'Bom dia!';
+    } else if (hora >= 12 && hora <= 17) {
+        mensagemHorario = 'Boa tarde!';
+    }
+
+    // Exibir o alerta com a mensagem de horário
+    alert(mensagem + ' ' + mensagemHorario);
+    
+    // Submeter o formulário
+    this.submit();
+});
+</script>
+
+</body>
+</html>
